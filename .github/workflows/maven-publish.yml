@@ -21,6 +21,6 @@ jobs:
       - name: ls target show
         run: ls target  
       - name: change name of student application
-        run: mv target/studentapp-2.2-SNAPSHOT.war student.war
+        run: mv target/studentapp-2.2-SNAPSHOT.war target/student.war
       - name: again ls
         run: ls target 
