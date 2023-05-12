@@ -19,4 +19,4 @@ jobs:
       - name: ls
         run: ls
       - name: target ls
-        run: ls target        
+        run: ls /target        
