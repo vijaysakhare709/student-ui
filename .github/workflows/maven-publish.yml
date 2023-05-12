@@ -14,9 +14,13 @@ jobs:
       - name: Build with Maven
         run: mvn clean install 
     
-      - name: pwd
+      - name: pwd command
         run: pwd
-      - name: ls
+      - name: ls command
         run: ls
-      - name: target ls
-        run: ls /target        
+      - name: ls target show
+        run: ls target  
+      - name: change name of student application
+        run: mv target/studentapp-2.2-SNAPSHOT.war student.war
+      - name: again ls
+        run: ls target 
