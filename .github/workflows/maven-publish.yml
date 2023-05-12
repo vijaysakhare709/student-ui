@@ -13,3 +13,8 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean install 
+    
+      - name: pwd
+        run: pwd
+      - name: ls
+        run: ls
