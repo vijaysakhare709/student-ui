@@ -83,3 +83,10 @@ jobs:
         run: |
           az account show
           echo ${{ github.sha }}
+          
+      - name: Set up AKS
+        uses: azure/aks-set-context@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          resourceGroupName: projectAresourcegroupA
+          clusterName: Vijay-kuberntes-cluster
