@@ -78,6 +78,7 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          redirect_uri: "http://localhost:8080"
 
       - name: Set Azure Subscription
         run: az account show 
