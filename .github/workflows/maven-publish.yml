@@ -46,11 +46,14 @@ jobs:
           cat dockerfile
       - name: Set JOB_NAME
         run: echo "JOB_NAME=${{ github.workflow }}" >> $GITHUB_ENV
+      - name: Set version
+        id: set-version
+        run: echo "::set-output name=version::v1.${{ github.run_id }}"
       - name: docker build
         run: |
           docker images ls
           docker --version
-          docker image build -t  ${{ env.JOB_NAME }}${{ github.run_id }} .
+          docker image build -t  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} .
           docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/${{ env.JOB_NAME }}${{ github.run_id }}
           docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/${{ env.JOB_NAME }}:latest
           docker image ls
