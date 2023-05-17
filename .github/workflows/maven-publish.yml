@@ -41,4 +41,6 @@ jobs:
           COPY target/student.war ./webapps/
           EOF
       - name: chack docker file   
-        run: ls 
+        run: |
+          ls
+          cat dockerfile
