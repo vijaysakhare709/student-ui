@@ -68,8 +68,11 @@ jobs:
           
       - name: Set up Azure CLI
         uses: azure/CLI@v1
+        with:
+          inlineScript: |
+             # Empty script
       - name: as ls
-        run: az login
+        run: az 
           
       - name: Azure Login
         uses: azure/login@v1
