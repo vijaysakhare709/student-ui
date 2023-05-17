@@ -82,3 +82,4 @@ jobs:
 
       - name: Set Azure Subscription
         run: az account show 
+        
