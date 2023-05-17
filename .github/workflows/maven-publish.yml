@@ -49,5 +49,5 @@ jobs:
           docker images ls
           docker --version
           docker image build -t  ${{ env.JOB_NAME }}${{ github.run_id }} .
-          docker image tag ${{ github.workflow }}:.${{ github.run_number }} vijaysakhare709/${{ github.workflow }}:.${{ github.run_number }}
-          docker image tag ${{ github.workflow }}:.${{ github.run_number }} vijaysakhare709/${{ github.workflow }}:latest
+          docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/ ${{ env.JOB_NAME }}${{ github.run_id }}
+          docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/ ${{ env.JOB_NAME }}:latest
