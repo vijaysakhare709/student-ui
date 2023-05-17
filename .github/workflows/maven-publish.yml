@@ -1,4 +1,4 @@
-name: MyfirstWorkflow
+name: myfirstworkflow
 on: [push, workflow_dispatch]
 jobs:
   first-job:
