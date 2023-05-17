@@ -68,6 +68,8 @@ jobs:
           
       - name: Set up Azure CLI
         uses: azure/CLI@v1
+      - name: as ls
+        run: az login
           
       - name: Azure Login
         uses: azure/login@v1
