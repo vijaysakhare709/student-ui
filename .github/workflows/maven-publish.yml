@@ -80,4 +80,4 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Set Azure Subscription
-        run: az account show
+        run: az account show 
