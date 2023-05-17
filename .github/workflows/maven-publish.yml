@@ -40,3 +40,5 @@ jobs:
           FROM tomcat
           COPY target/student.war ./webapps/
           EOF
+      - name: chack docker file   
+        run: ls 
