@@ -33,3 +33,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
+      - name: docker create images 
+        run: |
+          cat << EOF > dockerfile
+          FROM tomcat
+          COPY target/student.war ./webapps/
+          EOF
