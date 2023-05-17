@@ -88,5 +88,5 @@ jobs:
         uses: azure/aks-set-context@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          resourceGroupName: projectAresourcegroupA
-          clusterName: Vijay-kuberntes-cluster
+          resource-group: projectAresourcegroupA
+          cluster-name: Vijay-kuberntes-cluster
