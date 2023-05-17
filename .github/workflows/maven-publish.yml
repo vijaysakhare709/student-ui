@@ -62,3 +62,11 @@ jobs:
           docker image push vijaysakhare709/${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }}
           docker image push vijaysakhare709/${{ env.JOB_NAME }}:latest
           sudo docker image ls
+          
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set Azure Subscription
+        run: az account set show
