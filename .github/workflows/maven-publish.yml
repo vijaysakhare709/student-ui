@@ -90,3 +90,8 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           resource-group: projectAresourcegroupA
           cluster-name: Vijay-kuberntes-cluster
+
+      - name: Deploy to AKS
+        run: |
+          az aks get-credentials --resource-group projectAresourcegroupA --name Vijay-kuberntes-cluster
+          # kubectl apply -f <path-to-deployment-file>.yaml
