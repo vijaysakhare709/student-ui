@@ -44,6 +44,8 @@ jobs:
         run: |
           ls
           cat dockerfile
+      - name: Set JOB_NAME
+        run: echo "JOB_NAME=${{ github.workflow }}" >> $GITHUB_ENV
       - name: docker build
         run: |
           docker images ls
