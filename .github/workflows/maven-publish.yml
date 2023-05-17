@@ -58,3 +58,4 @@ jobs:
         run: |
           docker image push vijaysakhare709/${{ env.JOB_NAME }}${{ github.run_id }}
           docker image push vijaysakhare709/${{ env.JOB_NAME }}${{ github.run_id }}:latest
+          sudo docker image ls
