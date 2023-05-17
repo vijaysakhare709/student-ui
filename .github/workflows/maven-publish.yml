@@ -50,4 +50,4 @@ jobs:
           docker --version
           docker image build -t  ${{ env.JOB_NAME }}${{ github.run_id }} .
           docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/${{ env.JOB_NAME }}${{ github.run_id }}
-          docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/${{ env.JOB_NAME }}:latest
+          docker image tag  ${{ env.JOB_NAME }}${{ github.run_id }} vijaysakhare709/${{ env.JOB_NAME }}${{ github.run_id }}:latest
