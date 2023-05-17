@@ -66,6 +66,9 @@ jobs:
           docker image push vijaysakhare709/${{ env.JOB_NAME }}:latest
           sudo docker image ls
           
+      - name: Set up Azure CLI
+        uses: azure/CLI@v1
+          
       - name: Azure Login
         uses: azure/login@v1
         with:
