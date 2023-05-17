@@ -49,4 +49,3 @@ jobs:
           docker image build -t ${{ github.workflow }}.${{ github.run_number }} .
           docker image tag ${{ github.workflow }}:.${{ github.run_number }} vijaysakhare709/${{ github.workflow }}:.${{ github.run_number }}
           docker image tag ${{ github.workflow }}:.${{ github.run_number }} vijaysakhare709/${{ github.workflow }}:latest
-
