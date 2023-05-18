@@ -8,19 +8,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '11' 
-      - name: Check out code
+      - name: Check Out Code
         uses: actions/checkout@v2
 
-      - name: Build with Maven
+      - name: Build with Maven JAVA base application
         run: mvn clean install 
-    
-      - name: pwd command
-        run: pwd
         
-      - name: ls command
-        run: ls
-        
-      - name: ls target show
+      - name: Chack The artifacts in target folder using ls command
         run: ls target  
         
       - name: change name of student application
