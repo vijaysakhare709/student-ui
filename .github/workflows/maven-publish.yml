@@ -1,8 +1,5 @@
 name: myfirstworkflow
 on: [push, workflow_dispatch]
-permissions:
-      id-token: write
-      contents: read
 jobs:
   first-job:
     runs-on: ubuntu-latest
