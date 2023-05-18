@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: my-app-container 
-          image: vijaysakhare709/myfirstworkflow@sha256:latest
+          image: vijaysakhare709/myfirstworkflow:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
