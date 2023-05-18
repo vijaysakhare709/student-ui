@@ -57,7 +57,7 @@ jobs:
           docker images ls
           docker --version
           docker image build -t  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} .
-          docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }}
+          docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:hellostudent
           docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:latest
           docker image ls
       - name: push image to docker hub
