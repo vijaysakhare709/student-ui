@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: my-app
+      annotations:
+        update-timestamp: "{{ .Values.timestamp }}"
     spec:
       containers:
         - name: my-app-container
