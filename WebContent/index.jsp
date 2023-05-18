@@ -15,7 +15,7 @@ div.ex {
 }
 </style>
 <body>
-	<h1>Student Registration Form - the only and only created by vijay</h1>
+	<h1>Student Registration Form - whole whole created by vijay</h1>
 	<div class="ex">
 		<form action="registrationController" method="post">
 			<table style="with: 50%">
