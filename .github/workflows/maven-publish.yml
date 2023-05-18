@@ -95,4 +95,4 @@ jobs:
         run: |
           kubectl apply -f deployment.yaml
           kubectl get pod
-          kubectl get pods --all-namespaces
+          kubectl get pods --all-namespaces 
