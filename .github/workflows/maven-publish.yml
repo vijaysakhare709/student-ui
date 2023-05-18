@@ -49,20 +49,24 @@ jobs:
           cat dockerfile
       - name: Set JOB_NAME
         run: echo "JOB_NAME=${{ github.workflow }}" >> $GITHUB_ENV
+        
+      - name: Set commit number as environment variable
+        run: echo "COMMIT_NUMBER=${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+        
       - name: Set version
         id: set-version
-        run: echo "::set-output name=version::v1.${{ github.run_id }}"
+        run: echo "::set-output name=version::v1.${{ env.COMMIT_NUMBER }}"
       - name: docker build
         run: |
           docker images ls
           docker --version
           docker image build -t  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} .
-          docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:hellostudent
+          docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }}
           docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:latest
           docker image ls
       - name: push image to docker hub
         run: |
-          docker image push vijaysakhare709/${{ env.JOB_NAME }}:hellostudent
+          docker image push vijaysakhare709/${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }}
           docker image push vijaysakhare709/${{ env.JOB_NAME }}:latest
           sudo docker image ls
           
