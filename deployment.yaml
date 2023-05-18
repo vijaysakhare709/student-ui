@@ -11,11 +11,10 @@ spec:
     metadata:
       labels:
         app: my-app
-      annotations:
-        update-timestamp: "{{ .Values.timestamp }}"
     spec:
       containers:
         - name: my-app-container
           image: vijaysakhare709/myfirstworkflow:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
