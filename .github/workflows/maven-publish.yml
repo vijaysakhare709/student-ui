@@ -94,8 +94,6 @@ jobs:
       - name: Deploy to AKS
         run: |
           docker pull vijaysakhare709/myfirstworkflow:latest
-          date=$(date +%Y%m%d)
-          sed -i "s/image: vijaysakhare709\/myfirstworkflow:.*/image: vijaysakhare709\/myfirstworkflow:$date/" deployment.yaml
           kubectl apply -f deployment.yaml
           kubectl apply -f servicelb.yaml
           kubectl get service
