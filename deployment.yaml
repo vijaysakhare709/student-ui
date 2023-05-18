@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: vijaysakhare709/myfirstworkflow:latest
+          image: vijaysakhare709/myfirstworkflow:{{ .Values.date }}latest
           ports:
             - containerPort: 8080
