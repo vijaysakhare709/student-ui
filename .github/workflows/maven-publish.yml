@@ -98,6 +98,7 @@ jobs:
       - name: Deploy to AKS
         run: |
           docker pull vijaysakhare709/myfirstworkflow:latest
+          kubectl delete -f deployment.yaml
           kubectl apply -f deployment.yaml
           kubectl apply -f servicelb.yaml
           kubectl get service
