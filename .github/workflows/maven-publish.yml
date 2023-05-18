@@ -11,43 +11,46 @@ jobs:
       - name: Check Out Code
         uses: actions/checkout@v2
 
-      - name: Build with Maven JAVA base application
+      - name: Build With Maven JAVA Base Application
         run: mvn clean install 
         
-      - name: Chack The artifacts in target folder using ls command
+      - name: Chack The Artifacts In Target Folder Uing Ls Command
         run: ls target  
         
-      - name: change name of student application
+      - name: Change Name Of Student Application
         run: mv target/studentapp-2.2-SNAPSHOT.war target/student.war
         
-      - name: again ls
+      - name: After Change The Name Of Artifacts In Target Folder Uing Ls Command
         run: ls target 
-      - name: login to docker hub
+        
+      - name: login To Docker Hub
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           
-      - name: docker create images 
+      - name: Creating Docker images 
         run: |
           cat << EOF > dockerfile
           FROM tomcat
           COPY target/student.war ./webapps/
           EOF
-      - name: chack docker file   
+      - name: Chack Docker File   
         run: |
           ls
           cat dockerfile
-      - name: Set JOB_NAME
+          
+      - name: Set JOB_NAME environment variable
         run: echo "JOB_NAME=${{ github.workflow }}" >> $GITHUB_ENV
         
       - name: Set commit number as environment variable
         run: echo "COMMIT_NUMBER=${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
         
-      - name: Set version
+      - name: Set version For Docker Images
         id: set-version
         run: echo "::set-output name=version::v1.${{ env.COMMIT_NUMBER }}"
-      - name: docker build
+        
+      - name: Build Docker Image And Tags Also
         run: |
           docker images ls
           docker --version
@@ -55,29 +58,27 @@ jobs:
           docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }}
           docker image tag  ${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }} vijaysakhare709/${{ env.JOB_NAME }}:latest
           docker image ls
-      - name: push image to docker hub
+          
+      - name: Push Docker Image To Docker Hub Repository And Chack 
         run: |
           docker image push vijaysakhare709/${{ env.JOB_NAME }}:${{ steps.set-version.outputs.version }}
           docker image push vijaysakhare709/${{ env.JOB_NAME }}:latest
-          sudo docker image ls
+          docker image ls
           
       - name: Set up Azure CLI
         uses: azure/CLI@v1
         with:
           inlineScript: |
              # Empty script
-      - name: as ls
-        run: az 
-          
+             
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Set Azure Subscription
+      - name: See Azure Subscription Account Information
         run: |
           az account show
-          echo ${{ github.sha }}
           
       - name: Set up AKS
         uses: azure/aks-set-context@v1
@@ -88,7 +89,6 @@ jobs:
 
       - name: Deploy to AKS
         run: |
-          docker pull vijaysakhare709/myfirstworkflow:latest
           kubectl delete -f deployment.yaml
           kubectl apply -f deployment.yaml
           kubectl apply -f servicelb.yaml
