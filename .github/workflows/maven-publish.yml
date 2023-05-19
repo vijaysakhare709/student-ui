@@ -39,7 +39,7 @@ jobs:
         run: |
           cat << EOF > dockerfile
           FROM tomcat
-          COPY target/student.war ./webapps/
+          COPY target/studentapp-2.2-SNAPSHOT ./webapps/ROOT
           EOF
       - name: Chack Docker File   
         run: |
