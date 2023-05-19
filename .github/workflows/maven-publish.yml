@@ -23,12 +23,6 @@ jobs:
       - name: After Change The Name Of Artifacts In Target Folder Uing Ls Command
         run: ls target
         
-      - name:  student
-        run: |
-          ls target/student.war
-          cd target/student.war
-          ls
-        
       - name: login To Docker Hub
         uses: docker/login-action@v1
         with:
