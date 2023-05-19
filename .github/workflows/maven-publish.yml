@@ -89,12 +89,11 @@ jobs:
 
       - name: Deploy to AKS
         run: |
-          kubectl delete -f deployment.yaml       
-          kubectl apply -f deployment.yaml
-          kubectl apply -f servicelb.yaml
-          kubectl delete -f deployment.yaml
-          kubectl delete -f servicelb.yaml
+          kubectl delete -f app1deployment.yaml       
+          kubectl apply -f app1deployment.yaml
+          # kubectl apply -f servicelb.yaml
+          # kubectl delete -f deployment.yaml
+          # kubectl delete -f servicelb.yaml
           kubectl get service
+          kubectl get ingress
           kubectl get pod
-          kubectl get pods --all-namespaces 
-          kubectl get service
