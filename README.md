@@ -1,2 +1,2 @@
-# cbz-student-ui
+# c-student-ui
 
